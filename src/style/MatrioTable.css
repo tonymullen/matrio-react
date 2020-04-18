@@ -1,0 +1,40 @@
+table {
+  border-spacing: 0;
+  margin: 0;
+}
+
+.matrioTableCell {
+        width: 50px;
+        height: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+        text-align: center;
+        user-select: none;
+      }
+
+.matrioTable {
+        margin-left: auto;
+        margin-right: auto;
+        border-spacing : 0;
+        margin-top:25px;
+        background-color: darkgreen;
+        display: flex;
+        justify-content: center;
+}
+
+.matrioHeader {
+        height: 50px;
+      }
+
+.cardTray {
+        width: 80px;
+        height: 650px;
+        }
+
+.sideTray {
+        transform: rotate(90deg);
+        }
+
+.transOrigin {
+        transform-origin: center ;
+        }

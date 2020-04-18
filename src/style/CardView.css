@@ -1,0 +1,9 @@
+img.grayOut {
+  filter: contrast(0.3) brightness(1.5) saturate(0.5);
+}
+
+
+img.move.active:hover {
+  outline: 5px solid blue;
+  outline-offset: 2px;
+}

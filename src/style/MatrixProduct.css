@@ -1,0 +1,11 @@
+table.dotsTable  {
+  background-color: white;
+}
+
+.dotCell  {
+  border: 1px solid #555;
+  width: 120px;
+  height: 120px;
+  line-height: 50px;
+  text-align: center;
+}

@@ -1,0 +1,9 @@
+nvm install node
+Downloading and installing node v13.11.0...
+
+https://github.com/facebook/create-react-app
+
+Modify index.html and App.css
+
+add assets directory (images) to public
+
