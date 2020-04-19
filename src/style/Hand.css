@@ -29,8 +29,6 @@
 
     .south > div.hand-container {
         background-color: blue;
-        /* width:850px; */
-        /* height:340px; */
         display: inline-block;
         margin: 20px auto 10px auto;
         min-height: 100px;
@@ -43,7 +41,6 @@
     }
 
     div.hand div {
-        /* display: flex; */
         padding: 0px;
     }
 

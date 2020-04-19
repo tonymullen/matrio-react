@@ -30,8 +30,6 @@ div.hand-container {
 
 .south > div.hand-container {
     background-color: blue;
-    /* width:850px; */
-    /* height:340px; */
     display: inline-block;
     margin: 5 auto 0 auto;
     min-height: 80px;

@@ -5,15 +5,7 @@ table {
   margin: 0;
 }
 
-/* .matrioTableCell {
-        text-align: center;
-        user-select: none;
-      } */
-
 .matrioTable {
-        /* margin-left: auto;
-        margin-right: auto;
-        border-spacing : 0; */
         margin-top:25px;
         background-color: darkgreen;
         display: flex;

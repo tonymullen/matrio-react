@@ -44,9 +44,7 @@ export default class GameController {
 
   setUpDealSubscription() {
     this.dealer.deal$.subscribe(c => {
-      // Make sure it's a card, not a trigger
       if(Array.isArray(c)) {
-        // Extract card from observable
         let card = c[1][1];
         card.flip = true;
         card.player = c[1][0];
@@ -59,7 +57,6 @@ export default class GameController {
     err => { console.log(err)},
     () => {
         console.log("Finished dealing");
-        // this.unflipPlayersCards();
         setTimeout(() => {
           this.beginPlay();
         }, 1000);
@@ -137,6 +134,7 @@ export default class GameController {
     console.log('getting first player');
     let startPlayer = -1;
     for (let i = 0; i < 4; i++) {
+      // eslint-disable-next-line no-loop-func
       this.players[i].cards.forEach((c, cardInd) => {
         if (c.face === '2' && c.suit === 'club') {
           startPlayer = {
@@ -251,8 +249,6 @@ export default class GameController {
         leftMatrix: leftMatLegal,
       }
     } else if (this.emptyTrays[card.suit] > 0) {
-      // There are still empty trays
-      // c.value is null for blank trays
       this.topMatrix[this.suitOrder[card.suit]].forEach((c, i) => {
         if (c.value === null) {
           topMatLegal.push([this.suitOrder[card.suit], i]);
