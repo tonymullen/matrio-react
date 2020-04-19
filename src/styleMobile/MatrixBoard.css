@@ -1,0 +1,18 @@
+@media screen and (max-width: 849px) {
+
+.matBoardTable {
+    margin-left: auto;
+    margin-right: auto;
+    border-spacing : 0;
+  }
+
+.matBoardTable td {
+  vertical-align: top;
+}
+
+img.logo {
+  width: 195px;
+  height: 195px;
+}
+
+}

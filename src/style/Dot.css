@@ -1,7 +1,9 @@
+@media screen and (min-width: 850px) {
+
 .dot {
         box-sizing: border-box;
-        height: 120px;
-        width: 120px;
+        height: 80px;
+        width: 80px;
         border-radius: 50%;
         display: table-cell;
         border-style: solid;
@@ -12,8 +14,8 @@
 
 .dotInner {
         box-sizing: border-box;
-        height: 100px;
-        width: 100px;
+        height: 65px;
+        width: 65px;
         background-color: white;
         border-radius: 50%;
         display: inline-flex;
@@ -22,12 +24,14 @@
         border-width: thin;
         vertical-align: middle;
         font-family: 'Nanum Pen Script';
-        font-size: 70px;
+        font-size: 50px;
       }
 
 .dotText {
         margin-left: auto;
         margin-right: auto;
-        margin-top: 25%;
+        margin-top: 15%;
         color: black;
       }
+
+}

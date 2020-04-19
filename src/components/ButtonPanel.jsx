@@ -1,5 +1,4 @@
 import React from 'react';
-import '../style/ButtonPanel.css';
 
 export default class ButtonPanel extends React.Component {
   render() {

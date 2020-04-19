@@ -1,7 +1,10 @@
 import React from 'react';
 import './App.css';
 import GameController from './services/GameController.js';
+
 import MatrioTable from './components/MatrioTable.jsx';
+import MatrioTableMobile from './components/MatrioTableMobile.jsx';
+
 
 export default class App extends React.Component {
   constructor() {
@@ -21,14 +24,15 @@ export default class App extends React.Component {
     this.setState(this.gc.gameState);
   }
 
+  componentDidMount() {
+    window.addEventListener("resize", this.reveal.bind(this));
+  }
+
   render() {
+    const isMobile = window.innerWidth < 850;
     return (
     <div className="App">
-       {/* <header className="App-header"> */}
-      {/* </header> */}
-
-      <MatrioTable gc={this.gc} gameState={this.state}/>
-
+      { isMobile ? <MatrioTableMobile gc={this.gc} gameState={this.state}/>: <MatrioTable gc={this.gc} gameState={this.state}/>}
       { this.backdrop ? <div className='backdrop'></div> : ''}
     </div>
     );

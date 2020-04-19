@@ -1,6 +1,5 @@
 import React from 'react';
 import CardView from './CardView.jsx';
-import '../style/Hand.css';
 
 export default class Hand extends React.Component {
   render() {

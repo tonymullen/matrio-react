@@ -1,0 +1,15 @@
+@media screen and (max-width: 849px) {
+
+table.dotsTable  {
+  background-color: white;
+}
+
+.dotCell  {
+  border: 1px solid #555;
+  width: 67px;
+  height: 67px;
+  line-height: 50px;
+  text-align: center;
+}
+
+}

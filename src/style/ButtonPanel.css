@@ -1,72 +1,69 @@
-button {
-    border-radius: 10px;
-    color: white;
-    font-size: 48px;
-    height: 90px;
-    margin: auto;
-    padding: 10px;
-    vertical-align: middle;
-    position: relative;
-    left: 0px;
+@media screen and (min-width: 850px) {
+
+    button {
+        border-radius: 10px;
+        color: white;
+        font-size: 30px;
+        margin: auto;
+        padding: 10px;
+        vertical-align: middle;
+        position: relative;
+        left: 0px;
+    }
+
+    button:focus {
+        outline:0;
+    }
+
+    button.playAgain {
+        background-color: orange;
+    }
+
+    button.playAgain:active{
+        background-color: darkorange;
+    }
+
+
+    button.start {
+        background-color: orange;
+        top: -500px;
+        z-index: 10;
+    }
+
+    button.start:active {
+        background-color: darkorange;
+    }
+
+    button:hover {
+        background-color: darkorange;
+    }
+
+    div.message {
+        font-family: sans-serif;
+        border: none;
+        color: white;
+        font-size: 35px;
+        height: 50px;
+        margin: 2px;
+        top: -200px;
+        z-index: 10;
+    }
+
+    div.message * {
+        vertical-align: middle;
+    }
+
+    div.scoreBoard {
+        border-radius: 10px;
+        color: white;
+        font-size: 48px;
+        margin: auto;
+        padding: 10px;
+        vertical-align: middle;
+        position: relative;
+        left: 0px;
+        top: -700px;
+        z-index: 10;
+    }
+
 }
-
-button:hover {
-    border: solid 2px white;
-}
-
-button:focus {
-    outline:0;
-}
-
-button.playAgain {
-    width: 400px;
-    background-color: orange;
-}
-
-button.playAgain:active{
-    background-color: darkorange;
-}
-
-
-button.start {
-    width: 200px;
-    background-color: orange;
-    top: -700px;
-    z-index: 10;
-}
-
-button.start:active {
-    background-color: darkorange;
-}
-
-div.message {
-    font-family: sans-serif;
-    border: none;
-    color: white;
-    font-size: 48px;
-    height: 50px;
-    margin: 2px;
-    top: -700px;
-    z-index: 10;
-}
-
-div.message * {
-    vertical-align: middle;
-}
-
-div.scoreBoard {
-    border-radius: 10px;
-    color: white;
-    font-size: 48px;
-    margin: auto;
-    padding: 10px;
-    vertical-align: middle;
-    position: relative;
-    left: 0px;
-    top: -900px;
-    z-index: 10;
-}
-
-
-
-

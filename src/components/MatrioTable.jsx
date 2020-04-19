@@ -2,7 +2,13 @@ import React from 'react';
 import Hand from './Hand.jsx';
 import MatrixBoard from './MatrixBoard.jsx';
 import ButtonPanel from './ButtonPanel.jsx';
+
+import '../style/CardView.css';
+import '../style/Dot.css';
+import '../style/Hand.css';
+import '../style/ButtonPanel.css';
 import '../style/MatrioTable.css';
+
 
 
 export default class MatrioTable extends React.Component {

@@ -27,8 +27,8 @@ export function turnMarkerStyle(player) {
     borderRadius: '50%',
     border: 'solid 4px white',
     backgroundColor: bg_color,
-    width: '100px',
-    height: '100px',
+    width: '60px',
+    height: '60px',
     margin: '20px',
     position: 'absolute',
   };

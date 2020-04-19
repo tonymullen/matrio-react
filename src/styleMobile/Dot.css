@@ -1,0 +1,38 @@
+@media screen and (max-width: 849px) {
+
+
+.dot {
+        box-sizing: border-box;
+        height: 67px;
+        width: 67px;
+        border-radius: 50%;
+        display: table-cell;
+        border-style: solid;
+        border-color: gray;
+        border-width: thin;
+        vertical-align: middle;
+      }
+
+.dotInner {
+        box-sizing: border-box;
+        height: 55px;
+        width: 55px;
+        background-color: white;
+        border-radius: 50%;
+        display: inline-flex;
+        border-style: solid;
+        border-color: gray;
+        border-width: thin;
+        vertical-align: middle;
+        font-family: 'Nanum Pen Script';
+        font-size: 40px;
+      }
+
+.dotText {
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 10%;
+        color: black;
+      }
+
+}

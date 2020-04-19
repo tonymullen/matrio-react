@@ -1,6 +1,5 @@
 import React from 'react';
 import { colors } from '../style/PlayerColorStyles';
-import '../style/Dot.css';
 
 export default class Dot extends React.Component {
 

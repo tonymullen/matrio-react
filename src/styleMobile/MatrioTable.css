@@ -1,0 +1,33 @@
+@media screen and (max-width: 849px) {
+
+
+table {
+  border-spacing: 0;
+  margin: 0 auto 0 auto;
+}
+
+/* .matrioTableCell {
+        text-align: center;
+        user-select: none;
+      } */
+
+.matrioTable {
+        /* margin-left: auto;
+        margin-right: auto;
+        border-spacing : 0; */
+        /* margin-top:25px; */
+        background-color: darkgreen;
+        /* display: flex; */
+        justify-content: center;
+}
+
+/* .matrioHeader {
+        height: 50px;
+      } */
+
+/* .cardTray {
+        width: 80px;
+        height: 0px;
+        } */
+
+}

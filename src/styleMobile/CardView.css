@@ -1,0 +1,18 @@
+@media screen and (max-width: 849px) {
+
+
+img.grayOut {
+  filter: contrast(0.3) brightness(1.5) saturate(0.5);
+}
+
+
+img.move.active:hover {
+  outline: 3px solid blue;
+  outline-offset: 1px;
+}
+
+.flippy-card {
+  box-shadow: 0 0 0 0;
+}
+
+}

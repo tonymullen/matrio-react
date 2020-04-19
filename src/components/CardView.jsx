@@ -1,7 +1,5 @@
 import React from 'react';
 import Flippy, { FrontSide, BackSide } from 'react-flippy';
-import '../style/CardView.css';
-
 
 export default class CardView extends React.Component {
 
