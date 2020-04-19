@@ -4,6 +4,6 @@ Instructions:
 
 https://github.com/tonymullen/matrio
 
-App (WIP):
+App:
 
-https://matrio.herokuapp.com/
+https://tonymullen.github.io/matrio-react/
