@@ -3,12 +3,7 @@ import Dot from '../components/Dot'
 import '../style/MatrixProduct.css';
 
 
-
-export default class MatrixProduct extends React.Component {
-    render() {
-      const { dots } = this.props;
-
-
+const MatrixProduct = ({ dots }) => {
       let tbody = [];
       for (let i = 0; i < 3; i++) {
         let cells = [];
@@ -27,12 +22,13 @@ export default class MatrixProduct extends React.Component {
         tbody.push(<tr key={i}>{cells}</tr>)
       }
 
-      return (
-        <div>
-          <table className='dotsTable' id="board">
-            <tbody>{tbody}</tbody>
-          </table>
-        </div>
-      );
-    }
-  }
+  return (
+    <div>
+      <table className='dotsTable' id="board">
+        <tbody>{tbody}</tbody>
+      </table>
+    </div>
+  );
+}
+
+export default MatrixProduct;
