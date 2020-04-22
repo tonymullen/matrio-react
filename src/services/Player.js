@@ -10,6 +10,7 @@ export default class Player {
       this.score = null;
       this.cards = [];
       this.bust = false;
+      this.PLAYER_DELAY = 500;
     }
 
     makeMove(card) {
@@ -23,7 +24,7 @@ export default class Player {
           setTimeout(() => {
           this.randomMove(card);
           this.gc.nextMove(this.order);
-        }, 500);
+        }, this.PLAYER_DELAY);
       },
       'medium': () =>  {
 
@@ -60,8 +61,6 @@ export default class Player {
             Math.floor(Math.random()*legalPositions.leftMatrix.length)]
         ]);
       }
-
     }
-
   }
 

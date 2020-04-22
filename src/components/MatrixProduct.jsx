@@ -12,10 +12,8 @@ const MatrixProduct = ({ dots }) => {
           cells.push(
             <td key={id}>
               <div className='dotCell'>
-              <Dot
-                dot={dots[i][j]}
-              />
-               </div>
+                <Dot dot={dots[i][j]} />
+              </div>
             </td>
           );
         }

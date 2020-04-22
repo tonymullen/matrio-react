@@ -3,14 +3,14 @@ import Hand from './Hand.jsx';
 import MatrixBoard from './MatrixBoard.jsx';
 import ButtonPanel from './ButtonPanel.jsx';
 
-import '../styleMobile/CardView.css';
-import '../styleMobile/Dot.css';
-import '../styleMobile/Hand.css';
-import '../styleMobile/ButtonPanel.css';
-import '../styleMobile/Matrix.css';
-import '../styleMobile/MatrixBoard.css';
-import '../styleMobile/MatrixProduct.css';
-import '../styleMobile/MatrioTable.css';
+import '../style/mobile/CardView.css';
+import '../style/mobile/Dot.css';
+import '../style/mobile/Hand.css';
+import '../style/mobile/ButtonPanel.css';
+import '../style/mobile/Matrix.css';
+import '../style/mobile/MatrixBoard.css';
+import '../style/mobile/MatrixProduct.css';
+import '../style/mobile/MatrioTable.css';
 
 const MatrioTableMobile = ({ gc,
               gameState: { playerCards, topMatrix, leftMatrix,

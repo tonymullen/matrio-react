@@ -9,8 +9,6 @@ import '../style/Hand.css';
 import '../style/ButtonPanel.css';
 import '../style/MatrioTable.css';
 
-
-//export default class MatrioTable extends React.Component {
 const MatrioTable = ({ gc,
           gameState: { playerCards, topMatrix, leftMatrix,
             dots, status, toPlay, selectedIndex, legalMoves,

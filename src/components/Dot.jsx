@@ -5,9 +5,7 @@ const Dot = ({ dot: {player, score}}) =>  (
     (player === 'nobody') ?
     (
         <div></div>
-    )
-    :
-    (
+    ) : (
         <div className='dot' style={{backgroundColor: colors[player]}} >
             <div className='dotInner'>
                 <div className='dotText'>

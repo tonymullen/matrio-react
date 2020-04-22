@@ -3,13 +3,16 @@ import Player from './Player.js';
 import Card from './Card.js';
 import Dot from './Dot.js';
 
-// const RESTART_WAIT= 3000;
-// const MESSSAGE_WAIT = 1000;
+const START_DELAY = 1000;
 
 export default class GameController {
   constructor(app) {
     this.app = app;
     this.setup();
+  }
+
+  updateAppState() {
+    this.app.setState(this.gameState);
   }
 
   get gameState() {
@@ -51,7 +54,7 @@ export default class GameController {
         if (card.player === 3) { card.flip = false };
         card.index = this.players[card.player].cards.length;
         this.players[card.player].cards.push(card);
-        this.app.setState(this.gameState);
+        this.updateAppState()
       }
     },
     err => { console.log(err)},
@@ -59,7 +62,7 @@ export default class GameController {
         console.log("Finished dealing");
         setTimeout(() => {
           this.beginPlay();
-        }, 1000);
+        }, START_DELAY);
       }
     );
   }
@@ -71,63 +74,10 @@ export default class GameController {
     this.startTurns(firstPlayer.player, firstPlayer.card);
   }
 
-  setup() {
-    this.suitOrder = {
-      'spade': 0,
-      'diamond': 1,
-      'club': 2,
-      'heart': 3
-    }
-
-    this.dealer = new Dealer();
-
-    this.leftMatrix = [
-      [new Card('spade', 'blank'), new Card('spade', 'blank'), new Card('spade', 'blank')],
-      [new Card('diamond', 'blank'), new Card('diamond', 'blank'), new Card('diamond', 'blank')],
-      [new Card('club', 'blank'), new Card('club', 'blank'), new Card('club', 'blank')],
-      [new Card('heart', 'blank'), new Card('heart', 'blank'), new Card('heart', 'blank')],
-    ];
-
-    this.topMatrix = [
-      [new Card('spade', 'blank'), new Card('spade', 'blank'), new Card('spade', 'blank')],
-      [new Card('diamond', 'blank'), new Card('diamond', 'blank'), new Card('diamond', 'blank')],
-      [new Card('club', 'blank'), new Card('club', 'blank'), new Card('club', 'blank')],
-      [new Card('heart', 'blank'), new Card('heart', 'blank'), new Card('heart', 'blank')],
-    ];
-
-    this.dots = [
-      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
-      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
-      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
-    ];
-
-    this.emptyTrays = {
-        heart: 6,
-        spade: 6,
-        club: 6,
-        diamond: 6,
-    };
-
-    this.players = [
-      new Player(this, 0, 'Orange', false),
-      new Player(this, 1, 'Purple', false),
-      new Player(this, 2, 'Yellow', false),
-      new Player(this, 3, 'Blue', true)]
-
-    this.toPlay = null;
-
-    this.status = 'Start';
-
-    this.selectedIndex = -1;
-
-    this.legalMoves = {
-      topMatrix: [],
-      leftMatrix: [],
-    }
-    this.firstMove = true;
-
-    this.setUpDealSubscription();
-
+  resetGame() {
+    this.setup();
+    this.app.conceal();
+    this.updateAppState();
   }
 
   getFirstPlayer() {
@@ -140,7 +90,7 @@ export default class GameController {
           startPlayer = {
             player: i,
             card: cardInd,
-            };
+          };
         }
       });
     }
@@ -155,7 +105,7 @@ export default class GameController {
     if (cardInd && player===3) {
       this.selectedIndex = cardInd;
       this.selectCard(this.players[player].cards[cardInd])
-      this.app.setState(this.gameState);
+      this.updateAppState();
     }
     if (this.players.map(p => p.cards.length).reduce((x, y) => x + y, 0) > 0) {
       this.players[player].makeMove(cardInd)
@@ -164,7 +114,7 @@ export default class GameController {
       this.status = "GameOver";
       this.calculateScores();
       this.app.conceal();
-      this.app.setState();
+      this.updateAppState();
     }
   }
 
@@ -174,7 +124,7 @@ export default class GameController {
     while (this.players[this.toPlay].bust) {
       this.toPlay = ((this.toPlay + 1) % 4);
     }
-    this.app.setState(this.gameState);
+    this.updateAppState();
     this.takeTurn(this.toPlay);
   }
 
@@ -208,7 +158,7 @@ export default class GameController {
     if (this.firstMove) {
       this.firstMove = false;
     }
-    this.app.setState(this.gameState);
+    this.updateAppState();
   }
 
   selectCard(card) {
@@ -216,7 +166,7 @@ export default class GameController {
       this.legalMoves = this.getLegalPositions(card)
     } else {
       if ((card.index === this.selectedIndex) &&
-            this.players[3].cards.length > 1) {
+           this.players[3].cards.length > 1) {
           this.selectedIndex = -1;
           this.legalMoves = {
             topMatrix: [],
@@ -227,7 +177,7 @@ export default class GameController {
           this.legalMoves = this.getLegalPositions(card)
         }
     }
-    this.app.setState(this.gameState);
+    this.updateAppState();
   }
 
   getLegalPositions(card){
@@ -333,7 +283,7 @@ export default class GameController {
       }
     }
     this.setBusts();
-    this.app.setState(this.gameState);
+    this.updateAppState();
   }
 
   getDotProduct(leftRow, topColumn) {
@@ -388,10 +338,52 @@ export default class GameController {
       });
     }
 
-  resetGame() {
-    this.setup();
-    this.app.conceal();
-    this.app.setState({});
+  setup() {
+    this.suitOrder = {
+      'spade': 0,
+      'diamond': 1,
+      'club': 2,
+      'heart': 3
+    }
+    this.dealer = new Dealer();
+    this.leftMatrix = [
+      [new Card('spade', 'blank'), new Card('spade', 'blank'), new Card('spade', 'blank')],
+      [new Card('diamond', 'blank'), new Card('diamond', 'blank'), new Card('diamond', 'blank')],
+      [new Card('club', 'blank'), new Card('club', 'blank'), new Card('club', 'blank')],
+      [new Card('heart', 'blank'), new Card('heart', 'blank'), new Card('heart', 'blank')],
+    ];
+    this.topMatrix = [
+      [new Card('spade', 'blank'), new Card('spade', 'blank'), new Card('spade', 'blank')],
+      [new Card('diamond', 'blank'), new Card('diamond', 'blank'), new Card('diamond', 'blank')],
+      [new Card('club', 'blank'), new Card('club', 'blank'), new Card('club', 'blank')],
+      [new Card('heart', 'blank'), new Card('heart', 'blank'), new Card('heart', 'blank')],
+    ];
+    this.dots = [
+      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
+      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
+      [new Dot('nobody', null), new Dot('nobody', null), new Dot('nobody', null)],
+    ];
+    this.emptyTrays = {
+        heart: 6,
+        spade: 6,
+        club: 6,
+        diamond: 6,
+    };
+    this.players = [
+      new Player(this, 0, 'Orange', false),
+      new Player(this, 1, 'Purple', false),
+      new Player(this, 2, 'Yellow', false),
+      new Player(this, 3, 'Blue', true)]
+
+    this.toPlay = null;
+    this.status = 'Start';
+    this.selectedIndex = -1;
+    this.legalMoves = {
+      topMatrix: [],
+      leftMatrix: [],
+    }
+    this.firstMove = true;
+    this.setUpDealSubscription();
   }
 }
 

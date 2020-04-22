@@ -32,7 +32,11 @@ export default class App extends React.Component {
     const isMobile = window.innerWidth < 850;
     return (
     <div className="App">
-      { isMobile ? <MatrioTableMobile gc={this.gc} gameState={this.state}/>: <MatrioTable gc={this.gc} gameState={this.state}/>}
+      { isMobile ? (
+        <MatrioTableMobile gc={this.gc} gameState={this.state}/>
+      ) : (
+        <MatrioTable gc={this.gc} gameState={this.state}/>
+      )}
       { this.backdrop ? <div className='backdrop'></div> : ''}
     </div>
     );

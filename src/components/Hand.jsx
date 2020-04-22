@@ -5,7 +5,7 @@ const Hand = ({ gc, cards, toPlay,
                 player, selectedIndex,
                 bust, firstMove }) => {
   const humanPlayer = (player === 'player' && toPlay === 3);
-  const handContent = !bust ?
+  const handContent = !bust ? (
       cards.map((card, i) =>
         <div className='hand' key={i}>
           <CardView
@@ -17,10 +17,11 @@ const Hand = ({ gc, cards, toPlay,
                   && selectedIndex !== i}
           />
         </div>)
-        :
+      ) : (
         <div className={ bust? (player==='west' ? 'bustl' : 'bust') : null }>
           <strong>BUST</strong>
-        </div>;
+        </div>
+      );
 
   return (
     <div className='hand-container'>
